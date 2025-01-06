@@ -25,7 +25,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "share_target": {
-    "action": "/api/test",
+    "action": "/test",
     "method": "GET",
     "params": {
       "title": "title",
