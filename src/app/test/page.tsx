@@ -1,3 +1,7 @@
+"use client";
+import Link from "next/link";
+import { useParams, useSearchParams } from "next/navigation";
+
 type TestPageProps = {
   title: string;
   text: string;
@@ -12,19 +16,16 @@ type PageProps = {
   searchParams: SearchParams;
 };
 
-export default async function TestPage(props: PageProps) {
-  const { params, searchParams } = props;
+export default function TestPage(props: PageProps) {
+  const searchParams = Object.fromEntries(useSearchParams().entries());
 
   return (
     <div className="min-h-dvh m-2">
+      <header>
+        <Link href={"/"}>HOME</Link>
+      </header>
       <h1>Test ページ</h1>
 
-      <div className="m-2 rounded-md bg-gray-100 p-4">
-        params
-        <pre>
-          <code>{JSON.stringify(params, null, 2)}</code>
-        </pre>
-      </div>
       <div className="m-2 rounded-md bg-gray-100 p-4">
         searchParams
         <pre>
