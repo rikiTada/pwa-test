@@ -1,3 +1,4 @@
+import next from "next";
 import { NextRequest, NextResponse } from "next/server";
 
 type Params = Promise<{ title: string; text: string; url: string }>;
@@ -7,7 +8,7 @@ export async function GET(_req: Request, segmentData: { params: Params }) {
   const { title, text, url } = params;
 
   try {
-    return NextResponse.json(
+    NextResponse.json(
       {
         title,
         text,
@@ -15,6 +16,10 @@ export async function GET(_req: Request, segmentData: { params: Params }) {
         message: "Hello, World!!",
       },
       { status: 200 }
+    );
+
+    return NextResponse.redirect(
+      `/test?title=${title}&text=${text}&url=${url}`
     );
   } catch (error: unknown) {
     return NextResponse.json({ message: error }, { status: 400 });
