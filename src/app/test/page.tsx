@@ -33,6 +33,17 @@ export default function TestPage(props: PageProps) {
 }
 
 const CodeComp = () => {
+  // --- test用 ---
+  const params = useSearchParams()
+  const title = params.get("title")
+  const text = params.get("text")
+  const url = params.get("url")
+
+  console.log("title:",title)
+  console.log("text:",text)
+  console.log("url:",url)
+  // -------
+
   const searchParams = Object.fromEntries(useSearchParams().entries());
 
   return (
