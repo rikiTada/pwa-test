@@ -52,6 +52,12 @@ const CodeComp = () => {
       <pre>
         <code>{JSON.stringify(searchParams, null, 2)}</code>
       </pre>
+
+      <pre>
+        <code>title:{title}</code>
+        <code>text:{text}</code>
+        <code>url:{url}</code>
+      </pre>
     </div>
   );
 };
